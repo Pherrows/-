@@ -1,5 +1,85 @@
-.header {
+
+
+.nav {
   display: flex;
-  background-color: beige;
+  background-color: #ffffff;
+  justify-content: space-evenly; 
+  height: 30px;
+  color: 0,0,0,0.5;
+  font-size: 14px;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.nav > :nth-child(6) {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.nav *:nth-child(-n+5) {
+  color: red;
+  justify-content: flex-start;
+  margin: 10px;
+  text-align: center;
+  font-family: sans-serif;
+
+}
+
+.nav *:nth-child(n+7) {
+  color: blue;
+  justify-content: flex-end;
+  margin: 10px;
+  text-align: center;
+  font-family: sans-serif;
+
+}
+
+.left-nav {
+  height: 500px;
+  width: 100px;
+  background-color: #ffffff;
+  font-size: 12px;
   
+}
+
+div.left-nav > .nav-color .nc1 {
+  color: #006d3c;
+  font-family: sans-serif;
+}
+div.left-nav > .nav-color .nc2 {
+  color: #00a0e9;
+  font-family: sans-serif;
+
+}
+div.left-nav > .nav-color .nc3 {
+  color: #1d2088;
+  font-family: sans-serif;
+
+}
+div.left-nav > .nav-color .nc4 {
+  color: #ff0000;
+  font-family: sans-serif;
+
+}
+
+.left-nav > .left-nav2 {
+  font-size: 12px;
+  /* text-align: center; */
+  font-family: sans-serif;
+
+}
+
+.left-nav > .left-nav2 > .left-nav2-1 {
+  border-bottom: 1px solid #000000;
+}
+
+.bf1 {
+  display: flex;
+  font-size: 12px;
+  font-family: sans-serif;
+  text-align: center;
 }
