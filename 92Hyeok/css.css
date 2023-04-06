@@ -3,12 +3,13 @@
 .nav {
   display: flex;
   background-color: #ffffff;
-  justify-content: space-evenly; 
+  justify-content: space-between; 
   height: 30px;
   color: 0,0,0,0.5;
   font-size: 14px;
   text-align: center;
   border-bottom: 1px solid black;
+  padding: 20px;
 }
 
 .nav > :nth-child(6) {
@@ -17,7 +18,10 @@
   font-style: italic;
   font-family: sans-serif;
   text-align: center;
+  justify-content: center;
   margin-top: 10px;
+  align-items: center;
+  
 }
 
 .nav *:nth-child(-n+5) {
@@ -26,7 +30,8 @@
   margin: 10px;
   text-align: center;
   font-family: sans-serif;
-
+  text-align: left;
+  align-items: flex-start;
 }
 
 .nav *:nth-child(n+7) {
@@ -35,7 +40,8 @@
   margin: 10px;
   text-align: center;
   font-family: sans-serif;
-
+  text-align: right;
+  align-items: flex-end;
 }
 
 .left-nav {
