@@ -19,18 +19,38 @@ a {
   color: #000;
 }
 
+label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
 /* 헤더 영역 */
+.logo .h_logo {
+  display: block;
+  margin: 0 auto;
+  width: 240px;
+  height: 44px;
+  background-image: url(https://static.nid.naver.com/images/ui/join/m_naver_logo_20191126.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 240px auto;
+  color: transparent;
+  font-size: 0;
+}
+
+
+
 
 header {
   width: 100%;
-  background-color: orange;
+  /* background-color: orange; */
 }
 
 header .top {
   max-width: 768px;
   height: 124px;
   margin: 0 auto  ;
-  background-color: beige;
+  /* background-color: beige; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +60,6 @@ header .top {
 .phone {
   display: flex;
 }
-
 
 
 .bir {
@@ -61,7 +80,7 @@ header .top {
 
 #container {
   max-width: 768px;
-  background-color: royalblue;
+  /* background-color: royalblue; */
   margin: 0 auto;
   height: 996px;
 }
@@ -69,7 +88,7 @@ header .top {
 #container .section-input {
   width: 460px;
   margin: 0 auto;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
 }
 .step_url {
   position: absolute;
@@ -84,20 +103,58 @@ header .top {
   position: relative;
 }
 
+.section-input input {
+  margin-bottom: 20px;
+}
+
+.section-input select {
+  margin-bottom: 20px;
+}
+
+.section-input label {
+  margin-bottom: 20px;
+}
+
 /* 푸터 영역 */
 
 footer {
   width: 100%;
-  background-color: green;
+  /* background-color: green; */
 }
 
 footer .bottom {
   max-width: 768px;
   height: 83px;
   margin: 0 auto;
-  background-color: aqua;
+  /* background-color: aqua; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.bt-menu-2 {
+  display: flex;
+  margin: 0 auto;
+  max-width: 768px;
+  min-width: 460px;
+  font-size: 12px;
+  line-height: normal;
+  justify-content: space-around;
+  align-items: center;
+  color: #7e7e7e;
+}
+
+.bt-menu-2 li:nth-child(2) {
+  font-weight: bold;
+  
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7e7e7e;
+  font-size: 12px;
+  margin: 20px;
 }
