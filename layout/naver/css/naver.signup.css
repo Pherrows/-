@@ -61,6 +61,39 @@ header .top {
   display: flex;
 }
 
+.phone1 {
+  flex: 3;
+  margin-right: 10px;
+}
+
+.phone2 {
+  flex: 1;
+  background-color: #03c75a;
+  height: 51px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.phone3 {
+  text-align: center;
+  font-size: 15px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.phone4 {
+  /* display: flex; */
+  background-color: #f7f7f7;
+}
+
+.end {
+  background-color: #03c75a;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 
 .bir {
   display: flex;
