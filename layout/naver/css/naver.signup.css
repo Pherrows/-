@@ -105,11 +105,24 @@ header .top {
 
 .bir-m {
   flex: 1;
+  margin-left: 10px;
 }
 
 .bir-d {
   flex: 1;
+  margin-left: 10px;
+
 }
+
+input {
+  cursor: pointer;
+}
+
+label {
+  padding-bottom: 10px;
+}
+
+
 
 #container {
   max-width: 768px;
