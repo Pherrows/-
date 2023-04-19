@@ -19,27 +19,23 @@
       /* width: 50%; */
       flex: 1;
     }
-
     .flex-item-right {
       background-color: dodgerblue;
       padding: 10px;
-      width: 50%;
+      /* width: 50%; */
       flex: 1;
     }
 
     .flex-item-first {
       background-color: #f1f1f1;
       padding: 10px;
-      /* width: 50%; */
       flex: 1;
     }
-
     .flex-item-unimportant {
       background-color: dodgerblue;
       padding: 10px;
       flex: 1;
     }
-
     .flex-item-last {
       background-color: orange;
       padding: 10px;
@@ -51,17 +47,17 @@
       .flex-container {
         flex-direction: column;
       }
-    .flex-item-left,
-    .flex-item-right {
-      width: 100%;
+      /* .flex-item-left,
+      .flex-item-right {
+        width: 100%;
+      } */
     }
-  }
 
-  @media screen and (max-width: 800px) {
-    .flex-item-unimportant {
-      display: none;
+    @media screen and (max-width: 600px) {
+      .flex-item-unimportant {
+        display: none;
+      }
     }
-  }
   </style>
 </head>
 <body>
@@ -75,7 +71,6 @@
     <div class="flex-item-first">1</div>
     <div class="flex-item-unimportant">2</div>
     <div class="flex-item-last">3</div>
-
   </div>
 </body>
 </html>
