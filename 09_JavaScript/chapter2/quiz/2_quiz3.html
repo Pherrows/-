@@ -25,12 +25,12 @@
   
   
   // 3번 풀이
-  const fourth = prompt('4분기 판매량은?', '0'); 
-  const avgSales = (1200 + 1300 + 1000) / 3; 
-  
-  const relust = fourth  >= avgSales ? '판매량이 평균 이상입니다' : '판매량이 평균 미달입니다';
-  document.write(relust, '<br>');
+  const avgSales = (1200 + 1300 + 1000) / 3; // 평균 판매량
+  const fourth = prompt('4분기 판매량은?', '0');
 
+  const result = fourth >= avgSales ? '판매량이 평균 이상입니다.' : '판매량이 평균 미달입니다.';
+  document.write(avgSales);
+  document.write(result);
 </script>
 </body>
 </html>

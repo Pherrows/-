@@ -167,65 +167,61 @@
 
     result = a > b || b >= m || m > n; // false || false || false
     document.write(result, '<br>'); // false
-
+    
     result = a > b || b >= m || m <= n; // false || false || true
     document.write(result, '<br>'); // true
-
+    
     result = a <= b && b >= m && m <= n; // true && false && true
     document.write(result, '<br>'); // false
-
+    
     result = a <= b && b <= m && m <= n; // true && true && true
     document.write(result, '<br>'); // true
 
     result = !(a > b); // !false
-    document.write(result, '<br>'); //true
-
-    // Short-circuit evaluation  (단축 평가)
-    result = a > b && m <= n; //false %%
-    document.write(result, '<br>'); // false
-  
-    result = a < b || m > n; // true ||
     document.write(result, '<br>'); // true
-  
-  
+
+    // Short-circuit evaluation(단축 평가)
+    result = a > b && m <= n; // false && 
+    document.write(result, '<br>'); // false
+    
+    result = a < b || m > n; // true || 
+    document.write(result, '<br>'); // true
+
     // (응용) 필요 시 기본값 설정
-    // false로 취급되는 값 : 0, null, undefined, ''(빈문자) , NaN
+    // false로 취급되는 값: 0, null, undefined, ''(빈문자), NaN
     const dbData = null;
     result = dbData || '기본값';
     document.write(result, '<br>');
 
-  
-    // (심화)Short-circuit evaluation  예제
-    let aa; // falst value
-    let bb = null; // falst value
-    let cc = undefined; // falst value
-    let dd = 4; //NOT falsy
-    let ee = 'five' // Short-circuit에 의해 도달하지 않음
+    // (심화) Short-circuit evaluation 예제
+    let aa; // falsy value
+    let bb = null; // falsy value
+    let cc = undefined; // falsy value
+    let dd = 4; // NOT falsy
+    let ee = 'five'; // Short-circuit에 의해 도달하지 않음
     let ff = aa || bb || cc || dd || ee;
     document.write(ff, '<br>');
-  
+
     // 삼항 연산자
-    // 조건식? 값1: 값2;
+    // 조건식 ? 값1 : 값2;
     document.write('<h2>삼항 연산자</h2>');
     result = true ? 'javascript': 'hello';
     document.write(result, '<br>');
 
-    const  score = 65;
-    result = score >=90 ? 'A': (score >= 80 ? 'b' : 'c');
+    const score = 65;
+    result = score >= 90 ? 'A' : (score >= 80 ? 'B' : 'C');
     document.write(result, '<br>');
-  
+
     // 실습: 홀짝 판별기
     // window.prompt('메세지', '기본값'): 입력을 요청하는 대화 상자
-    // 확인을 누르면 입력값이 , 취소를 누르면 null 을 반환
+    // 확인을 눌면 입력값이, 취소를 누르면 null을 반환
     document.write('<h2>실습: 홀짝 판별기</h2>');
     const number = prompt('숫자를 입력하세요.', '0');
-    // document.write(typeof number, '<br>')
+    // document.write(typeof number, '<br>');
 
     // Number()를 안써도 연산 시 숫자로 자동 타입 변환이 일어남
-    result =  Number(number) % 2 === 0 ? '짝수' : '홀수';
+    result = Number(number) % 2 === 0 ? '짝수' : '홀수';
     document.write(result, '<br>');
-    
-
   </script>
 </head>
 <body>

@@ -47,53 +47,50 @@
     document.write(box, '<br>');
 
     const data = 100;
-    // data = 30; //값 변경 불가 
+    // data = 30; // 값 변경 불가
     document.write(data, '<br>');
 
-    //자료형(Data Types)
-    //문자형 (String)
-    // ""또는 '', ``(백틱, ES6ck)
+    // 자료형(Data Types)
+    // 문자형(String)
+    // "" 또는 '', ``(백틱, ES6차)
     const s = 'javascript';
     const num = '100';
-    const tag = '<h1>String</h1>'
+    const tag = '<h1>String</h1>';
     document.write(s, '<br>');
     document.write(num, '<br>');
     document.write(tag, '<br>');
 
-    const name = 'gori'
+    const name = 'goni';
     document.write(`hello ${1}`, '<br>');
     document.write(`hello ${'name'}`, '<br>');
     document.write(`hello ${name}`, '<br>');
-    document.write('hello' + name, '<br>'); // 백틱 미사용 시
+    document.write('hello ' + name, '<br>'); // 백틱 미사용 시
     document.write('<br>');
 
-    //숫자형(Number)
-
+    // 숫자형(Number)
     const num1 = 100;
     // 자바스크립트 내장 함수
     const num2 = Number('500'); // '500' -> 500
-    const num3 = Number('abc'); // NaN 
+    const num3 = Number('abc'); // NaN
     document.write(num1, '<br>');
     document.write(num2, '<br>');
     document.write(num3, '<br>');
     document.write('<br>');
-
+    
     // 논리형(Boolean)
     // true(참), false(거짓)
-
     const bool1 = true;
     const bool2 = 10 >= 100;
-    // 자바 스크립트 내장 함수 
-    const bool3 = Boolean('');  // false 로 취급되는 값: 0, null ,undefined ''(빈문자) NaN
+    // 자바스크립트 내장 함수
+    const bool3 = Boolean(' '); // false로 취급되는 값: 0, null, undefined, ''(빈문자), NaN
     document.write(bool1, '<br>');
     document.write(bool2, '<br>');
     document.write(bool3, '<br>');
     document.write('<br>');
 
     // 값이 비어있음을 나타내는 자료형
-    // undefined: 값이 할당되지 않았을 떄
-    // null: 저장된 데이터를 비우고자 할 떄
-
+    // undefined: 값이 할당되지 않았을 때
+    // null: 저장된 데이터를 비우고자 할 때
     let val1;
     let val2 = 'hello';
     document.write(val1, '<br>');
@@ -102,46 +99,12 @@
     document.write(val2, '<br>');
     document.write('<br>');
 
-    // typeof: 저장된 자료형을 알고 싶을 떄
-
+    // typeof: 저장된 자료형을 알고 싶을 때
     const num4 = 100;
-    const str = '자바스크립트'
+    const str = '자바스크립트';
     document.write(typeof num4, '<br>');
     document.write(typeof str, '<br>');
     document.write(typeof false, '<br>');
-
-    
-    // if (typeof num4 === 'string') {
-
-    // }
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </script>
 </head>
 <body>
