@@ -11,10 +11,10 @@
     // ('수학': '01', '영어': '02', '국어': '03', '국사': '04', 그 외: '00')
     
     // 풀이6
-    const num = prompt('과목을 입력하세요');
+    const subject = prompt('과목을 입력하세요');
     
-    switch (num) {
-      case '수학':
+    switch (subject) {
+        case '수학':
         document.write('01');
         break;
         case '영어':
@@ -26,11 +26,8 @@
         case '국사':
         document.write('04');
         break;
-        case '그 외':
+        default:
         document.write('00');
-        break;
-    
-      default:
         break;
     }
   </script>

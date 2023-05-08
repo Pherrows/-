@@ -16,7 +16,7 @@
     // 풀이3
     const grade = Number(prompt('학년을 입력하세요.', ''));
     const score = Number(prompt('점수를 입력하세요.', ''));
-    if (score < 0 && score > 100) {
+    if (score < 0 || score > 100) {
       window.alert('에러입니다.');
     } else {
       if (grade >= 1 && grade <= 3) {

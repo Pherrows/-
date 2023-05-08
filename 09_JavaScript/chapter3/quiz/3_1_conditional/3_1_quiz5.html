@@ -13,9 +13,39 @@
     // 풀이5
     // 주의! 덧셈을 하려면 숫자로 변환해 줄 것!!
     
-    const one = Number(prompt('첫번쨰 숫자', '0'))
-    const two = Number(prompt('두 숫자', '0'))
-    const three = Number(prompt('세번쨰 숫자', '0'))
+    const one = Number(prompt('첫번쨰 숫자', '0'));
+    const two = Number(prompt('두번쨰 숫자', '0'));
+    const three = Number(prompt('세번쨰 숫자', '0'));
+
+    //최대값
+    let max = one;
+    if (max < two) {
+      max = two;
+    }
+    if (max < three) {
+      max = three;
+    }
+
+    // max = Math.max(one, two, three)
+
+    //최소값
+
+    let min = one;
+    if (min > two) {
+      min = two;
+    }
+    if (min > three) {
+      min = three;
+    }
+    // min = Math.min(one, two, three)
+
+    const sum = one + two + three;
+    const avg = sum / 3;
+
+    document.write(`최대값: ${max} `);
+    document.write(`최소값: ${min} `);
+    document.write(`합계: ${sum} `);
+    document.write(`평균값: ${avg} `);
 
   </script>
 </head>
