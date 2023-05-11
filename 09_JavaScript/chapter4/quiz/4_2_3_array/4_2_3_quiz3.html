@@ -15,12 +15,18 @@
     // 풀이3
     const no = prompt('과일입력', '사과');
     
+    const nono = fruits.indexOf(no);
+
+    if (nono === -1) {
+      alert('제거할 과일이 없습니다')
+    } else {
+      fruits.splice(nono,1);
+    }
+
+    console.log(fruits);
     
     
     
-    let index = fruits.indexOf('사과')
-    fruits.splice(no, 1,)
-    console.log(index);
   
   
   

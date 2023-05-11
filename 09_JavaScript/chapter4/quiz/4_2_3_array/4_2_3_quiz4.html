@@ -12,21 +12,24 @@
     const points = [40, 100, 1, 5, 25, 10];
 
     // 풀이4
-    // document.write(points.sort());
-    // document.write(points.sort(function(a, b) { return a - b; }), '<br>');
-    let max = points[0]
-    let min = points[0]
-    for (let i = 0; i < points.length; i++) {
-      if (i > max) {
-        max = i
-      } else if (i < min) {
-        min = i
-      }
-    }
-    document.write(max, min)
+    let max = 0;
+    let min = 0;
+
+    for ( const el of points ) {
+      if (max < el) max = el;
+      if (min > el) min = el;
     
+      // max = Math.max(max, el);
+    
+    }
+
+    document.write(`최대값:`, max);
+    document.write(`최소값:`, min);
   
-  
+  // 풀이
+
+  document.write(`최대값: ${Math.max(...points)}`)
+  document.write(`최소값: ${Math.min(...points)}`)
   
   </script>
 </head>
