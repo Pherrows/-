@@ -16,8 +16,20 @@
 
     // 풀이3
     
+    function printNumbers(from, to) {
+      let start = from;
 
-    printNumbers(from, to)
+      const timer = setInterval(() => {
+      document.write(start);
+
+    if (start === to) {
+      clearInterval(timer);
+    }
+      start++;
+    }, 1000);
+  }
+
+    printNumbers(1, 10)
   </script>
 </head>
 <body>
