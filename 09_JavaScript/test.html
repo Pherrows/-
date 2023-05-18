@@ -6,22 +6,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script>
-    // let ff = aa || bb || cc || dd || ee;
-    // console.log(ff);
-
-    // 2번 문제
-    const id = prompt(`아이디를 입력하세요`);
     
-    if (id === '') {
-      alert('잘 못된 입력입니다')
+    // let aa = null;
+    // let bb;
+    // let cc = '';
+    // let dd = 4;
+    // let ee = undefined;
+    // let ff = aa || bb || cc || dd || ee;
+
+    // document.write(ff);
+
+    // // 2번 문제
+    // const id = prompt(`아이디를 입력하세요`);
+    
+    // if (id === '') {
+    //   alert('잘 못된 입력입니다')
+    // } else {
+    //   alert(id + '님 환영 합니다')
+    // };
+
+    // let sum = 0;
+    // for (let i = 1; i <= 100; i++) {
+    //   if (i % 2 === 0) {
+    //     sum += i;
+    //   };
+      
+    // };
+    // document.write(sum);
+
+
+    // for (let i = 1; i <= 6; i++) {
+    //   for (let a = 1; a <= 6; a++) {
+    //     if (i + a === 6) {
+    //       console.log('1번' + i, '2번' + a);
+    //     }
+        
+    //   };
+    // };
+
+
+    // const fileName = '기획서 수정.최종본.진짜마지막.PDF';
+
+    // const file = fileName.substr(17, 20)
+    // document.write(file.toLocaleLowerCase());
+  
+  
+    // const a1 = ['Kim', 'Lee', 'Park'];
+    // const a2 = 'Choi';
+  
+    // const aa = a1.concat(a2); 
+    // document.write(aa);
+
+    const yourName = prompt('당신의 이름은?', '');
+    
+    let name;
+
+    if (yourName !== '') {
+      name = yourName
     } else {
-      alert(id + '님 환영 합니다')
+      name = '손님'
     };
 
-
-    
-
-
+    document.write(name)
 
   </script>
 </head>
