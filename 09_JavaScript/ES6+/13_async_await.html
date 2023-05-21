@@ -190,13 +190,17 @@
     //   console.error(err);
     // });
 
-    // const logunUser2 = async() => {
+  
 
-    // };
-
-    function logunUser(id, password) {
-      
-    }
+    const loginUser = async (id, password) => {
+      try {
+        const userId = await loginUser(id, password);
+        const userInfo = await getRoles(userId);
+        alert(`Welcome ${userInfo.name} (${userInfo.role})`);
+      } catch (err) {
+    console.error(err);
+      }
+    };
   </script>
 </head>
 <body>
