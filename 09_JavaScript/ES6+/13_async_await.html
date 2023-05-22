@@ -190,17 +190,20 @@
     //   console.error(err);
     // });
 
-  
+      
 
     const loginUser = async (id, password) => {
       try {
-        const userId = await loginUser(id, password);
+        const userId = await logunUser(id, password);
         const userInfo = await getRoles(userId);
         alert(`Welcome ${userInfo.name} (${userInfo.role})`);
       } catch (err) {
-    console.error(err);
+        console.error(err);
       }
     };
+    loginUser(id, password);
+  
+  
   </script>
 </head>
 <body>
