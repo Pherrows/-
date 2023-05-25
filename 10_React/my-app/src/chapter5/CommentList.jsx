@@ -38,12 +38,25 @@ function CommentList() {
           <Comment name={comment.name} content={comment.content} />
         );
       })}
+        {/* 코드 간소화 */}
+      {comments.map(comment => <Comment name={comment.name} content={comment.content} />)}
+
+
+
 
       {/* map() 함수의 결과 */}
-      {
-        // [1, 2, 3].map(element => element * 10)  학원
+      {[  
+        <Comment name={'킴고니'} content={'안녕하세요. 고니입니다.'} />,
+        <Comment name={'유재석'} content={'리액트 재미있어요~!'} />,
+        <Comment name={'이이경'} content={'저도 리액트 배워보고 싶어요!!'} />,
+        <Comment name={'이미주'} content={'리액트 너무 어려웡~~'} />
+      ]}
+      
+      
 
-      }
+
+
+
     </div>
   );
 }
