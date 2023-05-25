@@ -41,7 +41,7 @@ function CommentList() {
 
       {/* map() 함수의 결과 */}
       {
-        // [1, 2, 3].map(element => element * 10)  5-24 집
+        // [1, 2, 3].map(element => element * 10)  학원
 
       }
     </div>
