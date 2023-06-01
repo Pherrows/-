@@ -22,18 +22,50 @@ import React, { useState } from 'react';
 
 function SignUp(props) {
 
-const [name, setName] = useState('');
+// 객체 하나로 관리 시
 
-const handleChangeName = (e) => {
-  setName(e.target.value);
+const [inputs, setInputs] = useState({
+  name: '',
+  gender: '남자'
+});
+
+const {name, gender} = inputs;
+
+const handleInputChange = (e) => {
+  const {name, value} = e.target;
+
+  // 방법1
+  // const copyObj = {
+  //   ...inputs
+  // };
+  // copyObj[name] = value;
+  // setInputs(copyObj)
+
+  // 방법2
+  setInputs(inputs => ({
+      ...inputs,  // 기존의 inputs 객체를 복사한뒤
+      [name]: value  // name값을 키로 가진 속성을 값을 value로 설정
+  }));
 };
 
 
-const [gender, setGender] = useState('남자');
 
-const handleChangeGender = (e) => {
-  setGender(e.target.value)
-}
+
+
+
+
+// const [name, setName] = useState('');
+
+// const handleChangeName = (e) => {
+//   setName(e.target.value);
+// };
+
+
+// const [gender, setGender] = useState('남자');
+
+// const handleChangeGender = (e) => {
+//   setGender(e.target.value)
+// }
 
 
 const subMit = (e) => {
@@ -47,11 +79,13 @@ const subMit = (e) => {
   return (
     <form onSubmit={subMit}>
       <label>
+        이름:
         <input type="text"
           value={name}
-          onChange={e => handleChangeName(e)}
+          onChange={handleInputChange}
+          name='name'
         />
-        <select value={gender} onChange={handleChangeGender}>
+        <select value={gender} onChange={handleInputChange} name='gender'>
         <option value="남자">남자</option>
         <option value="여자">여자</option>
         </select>
