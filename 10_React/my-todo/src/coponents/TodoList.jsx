@@ -20,7 +20,7 @@ function TodoList(props) {
 
       {/* Quiz:TodoListItem으로 이루어진 배열로 변환하여 반복 렌더링 */}
       {todos.map((todo) => {
-        return <TodoListitem ket={todo.id} todo={todo}/>
+        return <TodoListitem key={todo.id} todo={todo}/>
       })}
     </TodoListWrapper>
   );
