@@ -44,6 +44,9 @@ import DialogContainer from './chapter13/13.1.2/DialogContainer';
 import SingUpDialog from './chapter13/13.1.3/SingUpDialog';
 import ProfilCard from './chapter13/ProfilCard';
 import DarkOrLight from './chapter14/DarkOrLight';
+import StyledPage from './chapter15/StyledPage';
+import ThemeApp from './chapter15/theme/ThemeApp';
+import ParentComponent from './chapter7/7.5/ParentComponent';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -79,6 +82,7 @@ root.render(
   // <TimerContainer />
     // <TextinputWithFocousButton />
     // <ComponetVariable />
+    <ParentComponent />
 
   // 8장 예제
   // <Toggle />
@@ -118,7 +122,11 @@ root.render(
   // <ProfilCard />
 
   // 14장 예제
-  <DarkOrLight />
+  // <DarkOrLight />
+
+  // 15장 예제
+  // <StyledPage />
+  // <ThemeApp />
 );
 
 // 4장 예제
