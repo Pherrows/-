@@ -47,6 +47,7 @@ import DarkOrLight from './chapter14/DarkOrLight';
 import StyledPage from './chapter15/StyledPage';
 import ThemeApp from './chapter15/theme/ThemeApp';
 import ParentComponent from './chapter7/7.5/ParentComponent';
+import SimpleRouter from './chapter16/SimpleRouter';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -82,7 +83,7 @@ root.render(
   // <TimerContainer />
     // <TextinputWithFocousButton />
     // <ComponetVariable />
-    <ParentComponent />
+    // <ParentComponent />
 
   // 8장 예제
   // <Toggle />
@@ -127,6 +128,9 @@ root.render(
   // 15장 예제
   // <StyledPage />
   // <ThemeApp />
+
+  // 16장 예제
+  <SimpleRouter />
 );
 
 // 4장 예제
