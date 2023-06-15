@@ -53,7 +53,7 @@ function PostViewPage(props) {
 
   const [comment, setComment] = useState('');
 
-  // URL 파라미터로 저달받은 글의 id값 가져오기
+  // URL 파라미터로 전달받은 글의 id값 가져오기
   // useParams(): URL 파라미터에 입력한 값을 가져올 수 있음
   const {postId} = useParams();
   console.log(useParams());
