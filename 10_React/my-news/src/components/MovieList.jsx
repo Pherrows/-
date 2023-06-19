@@ -9,7 +9,7 @@ const MovieListBlock = styled.div`
 
 function MovieList(props) {
   
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     const movieData = async () => {
@@ -26,9 +26,9 @@ function MovieList(props) {
 
   return (
     <MovieListBlock>
-      {movie.map((movies) => {
+      {movie && movie.map((movies, index) => {
         return(
-          <MovieItem movies={movies} />
+          <MovieItem movies={movies} ket={index}/>
         )
       })}
     </MovieListBlock>
