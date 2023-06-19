@@ -48,6 +48,7 @@ import StyledPage from './chapter15/StyledPage';
 import ThemeApp from './chapter15/theme/ThemeApp';
 import ParentComponent from './chapter7/7.5/ParentComponent';
 import SimpleRouter from './chapter16/SimpleRouter';
+import ApiRequest from './chapter17/ApiRequest';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -130,7 +131,10 @@ root.render(
   // <ThemeApp />
 
   // 16장 예제
-  <SimpleRouter />
+  // <SimpleRouter />
+
+  // 17장 예제
+  <ApiRequest />
 );
 
 // 4장 예제
