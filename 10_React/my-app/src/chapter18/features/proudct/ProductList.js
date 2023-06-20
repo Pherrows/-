@@ -34,7 +34,6 @@ function ProductList(props) {
             return <li key={index}>{item}</li>
           })}
         </ul>
-
       </div>
     </>
   );
