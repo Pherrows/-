@@ -20,6 +20,11 @@ function ProductList(props) {
           type='text'
           onChange={(e) => {setaddListAmount(e.target.value)}}
           value={addListAmount}
+          onKeyUp={(e) => {
+            if (e.key === 'Enter') {
+              addList(addListAmount)
+            }
+          }}
         />
         <button
           type='button'
