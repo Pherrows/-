@@ -1,10 +1,14 @@
 import { createGlobalStyle } from 'styled-components'
-import { Button, Container, Nav, Navbar } from 'react-bootstrap'
+import { Button, Container, Nav, Navbar,  } from 'react-bootstrap'
+
 import 'bootstrap/dist/css/bootstrap.min.css'; // bootstrap CSS 추가
+import 'react-toastify/dist/ReactToastify.min.css'; // ReactToastufy 추가
+
 import Header from './pages/Header';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Main from './pages/Main';
 import ProductDtail from './pages/ProductDtail';
+import {ToastContainer} from 'react-toastify'
 
 // 글로벌(공통) 스타일 설정
 
@@ -60,6 +64,14 @@ function App() {
           <Route path='/detail/:productId' element={<ProductDtail />}/>
         </Route>
       </Routes>
+
+      <ToastContainer 
+        position='bottom-right'
+        autoClose={3000}
+        pauseOnFocusLoss={false}
+        theme='dark'
+        limit={3}
+      />
     
     
     </>

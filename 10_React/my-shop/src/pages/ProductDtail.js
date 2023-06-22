@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Container, Form, Nav, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-
+import styled, { keyframes } from 'styled-components'
 // 서버에서 받아온 데이터라고 가정
 import data  from '../data.json'
 import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedProduct, selectSelectedProduct } from '../features/product/productSlice';
+import { toast } from 'react-toastify';
+import TabContents from '../components/TabContents';
+
+// 스타일드 컴포넌트를 이용한 애니메이션
+
+const highlight = keyframes`
+  from { background-color: #cff4fc}
+  50% {background-color: #e8f7fa}
+  to {background-color: #cff4fc}
+`;
+
+const StuledAlert = styled(Alert)`
+  animation: ${highlight} 1s linear infinite;
+`;
 
 function ProductDtail() {
   // URL 파라미터 가져오기
@@ -14,8 +28,25 @@ function ProductDtail() {
   const productDtail = useSelector(selectSelectedProduct);
 
   const [alertTime, setAlertTime] = useState(true); // info Alert 창 상태
+  const [orderCount, setOderCount] = useState(1); // 주문수량 상태 
+  const [showTabIndex, setShowTabIndex] = useState(0); // 탭상태
+  const [showTab, setShowTab] = useState(`detail`); 
+
+
   // 숫자 포맷 적용
   const formatter = new Intl.NumberFormat(`ko-KR`);
+
+
+  const handelOrderCount = (e) => {
+    if (isNaN(e.target.value)) {
+      toast.error('💯숫자만 입력하세요!')
+      return;
+    }
+    setOderCount(Number(e.target.value)) 
+  };
+
+
+
 
   // 처음 마운트 됐을떄 서버에 상품 id를 이용하여 데이터를 요청
   // 그 결과를 리덕스 스토어에 저장
@@ -53,9 +84,10 @@ function ProductDtail() {
         (힌트: 처음 렌더링 됐을떄  setTimeout 으로 타이머 설정)
       */}
         {alertTime &&
-        <Alert  variant='info' >
+  
+        <StuledAlert  variant='info' onClose={() => setTimeout(false)} dismissible >
           현재 34명이 이 상품을 보고 있습니다
-        </Alert>
+        </StuledAlert>
         }
       <Row>
         {/* Quiz: 데이터 바인딩 작업 */}
@@ -66,9 +98,80 @@ function ProductDtail() {
           <h4 className='pt-5'>{productDtail?.title}</h4>
           <p>{productDtail?.content}</p>
           <p>{formatter.format(productDtail?.price)}원</p>
+
+          {/* 주문수량 입력 UI */}
+          <Col md={4} className='m-auto mb-3' >
+            <Form.Control type='text' onChange={handelOrderCount} value={orderCount}/>
+          </Col>
+
           <Button variant='primary'>주문하기</Button>
         </Col>
       </Row>
+
+      {/* 탭 UI 만들기 */}
+        
+      <Nav defaultActiveKey="link-0" variant='tabs' className='my-3'>
+      {/* <Nav.Item>
+        <Nav.Link eventKey="link-0" onClick={() => setShowTabIndex(0)}>상세정보</Nav.Link>
+      </Nav.Item>
+      <Nav.Item >
+        <Nav.Link eventKey="link-1" onClick={() => setShowTabIndex(1)}>리뷰</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-2" onClick={() => setShowTabIndex(2)}>Q&amp;A</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-3" onClick={() => setShowTabIndex(3)}>반품정보/교환정보</Nav.Link>
+      </Nav.Item> */}
+      <Nav.Item>
+        <Nav.Link eventKey="link-0" onClick={() => setShowTab('detail')}>상세정보</Nav.Link>
+      </Nav.Item>
+      <Nav.Item >
+        <Nav.Link eventKey="link-1" onClick={() => setShowTab('review')}>리뷰</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-2" onClick={() => setShowTab('qa')}>Q&amp;A</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-3" onClick={() => setShowTab('exchange')}>반품정보/교환정보</Nav.Link>
+      </Nav.Item>
+    </Nav>
+
+        {/* 탭의 내용을 다만들어 놓고 조건부 렌더링하면됨 */}
+        {/* 방법1. 삼항 연산자 사용 (비효율적) */}
+        {/* {setshowTabIndex === 0
+          ? <div>탭 내용1</div>
+          :setshowTabIndex === 1
+          ? <div>탭 내용2</div>
+          : setshowTabIndex === 2
+          ? <div>탭 내용3</div>
+          :setshowTabIndex === 3
+          ? <div>탭 내용4</div>
+          : null
+        } */}
+
+        {/* 방법2. 컴포넌트로 추출 */}
+        {/* <TabContents showTabIndex={showTabIndex}/> */}
+
+        {/* 방법3. 배열이나 객체 형태로 만들어서 조건부 렌더링(편법) */}
+        {/* 배열 형태 */}
+        {/* {
+          [
+            <div>탭 내용1</div>,
+            <div>탭 내용2</div>,
+            <div>탭 내용3</div>,
+            <div>탭 내용4</div>
+          ][showTabIndex]
+        } */}
+
+        {
+          {
+            'detail':<div>탭 내용1</div>,
+            'review':<div>탭 내용2</div>,
+            'qa':<div>탭 내용3</div>,
+            'exchange':<div>탭 내용4</div>,
+          }[showTab] 
+        }
     </Container>
   );
 }
