@@ -9,6 +9,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Main from './pages/Main';
 import ProductDtail from './pages/ProductDtail';
 import {ToastContainer} from 'react-toastify'
+import Cart from './pages/Cart';
 
 // 글로벌(공통) 스타일 설정
 
@@ -27,6 +28,12 @@ const GlobalStyle = createGlobalStyle`
 
   .cursor-pointer {
     cursor: pointer;
+  }
+
+  .text-ellipsis {
+    white-space: nowrap; // 줄바꿈 안함
+    overflow: hidden; // 넘친 부분 숨기기
+    text-overflow: ellipsis; // 넘친 부분을 어떻게 보일지 지정 ellipsis = 줄임표
   }
 `;
 
@@ -62,6 +69,7 @@ function App() {
           {/* 상품별 상세페이지 여러 개를 라우팅 하려면 URL 파라미터 사용 */}
           {/* /detail/1로 접속하면 productId에 1이 담김 */}
           <Route path='/detail/:productId' element={<ProductDtail />}/>
+          <Route path='/cart' element={<Cart />}/>
         </Route>
       </Routes>
 

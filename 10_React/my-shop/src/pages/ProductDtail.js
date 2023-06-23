@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Col, Container, Form, Nav, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Alert, Button, Col, Container, Form, Modal, Nav, Row } from 'react-bootstrap';
+import { json, useNavigate, useParams } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components'
 // 서버에서 받아온 데이터라고 가정
 import data  from '../data.json'
 import { useDispatch, useSelector } from 'react-redux';
-import { getSelectedProduct, selectSelectedProduct } from '../features/product/productSlice';
+import { clearSelectedProduct, getSelectedProduct, selectSelectedProduct } from '../features/product/productSlice';
 import { toast } from 'react-toastify';
 import TabContents from '../components/TabContents';
+import Cart from './Cart';
+import { addItemToCart, selectCartList } from '../features/cart/cartSlice';
 
 // 스타일드 컴포넌트를 이용한 애니메이션
 
@@ -26,11 +28,17 @@ function ProductDtail() {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const productDtail = useSelector(selectSelectedProduct);
-
+  const product = useSelector(selectCartList)
   const [alertTime, setAlertTime] = useState(true); // info Alert 창 상태
   const [orderCount, setOderCount] = useState(1); // 주문수량 상태 
   const [showTabIndex, setShowTabIndex] = useState(0); // 탭상태
-  const [showTab, setShowTab] = useState(`detail`); 
+  const [showTab, setShowTab] = useState(`detail`);  // 탭상태
+  const [showModal, setShowModal] = useState(false); // 모달상태
+  
+  const handleClose = () => setShowModal(false)
+  const handleOpen = () => setShowModal(true)
+  const navigate = useNavigate();
+
 
 
   // 숫자 포맷 적용
@@ -60,6 +68,20 @@ function ProductDtail() {
       if (!foundProduct) return;
       dispatch(getSelectedProduct(foundProduct));
       
+      // 해당 상품의 id 값을 localStorage에 추가
+      let latestViewed = JSON.parse(localStorage.getItem('latestViewed')) || []; //처음에 null 이니까 기본값으로 빈배열 넣어줌
+      // id 값을 넣기 전에 기존 배열에 존재하는지 검사하거나
+      // 아니면 일단 넣고 Set 자료형을 이용하여 중복 제거(간편함)
+      latestViewed.push(productId);
+      latestViewed = new Set(latestViewed); // 중복 요소가 제거됨
+      latestViewed = [...latestViewed];
+      localStorage.setItem('latestViewed', JSON.stringify(latestViewed))
+
+
+      // 상세 페이지가 언마운트 될 떄 전역 상태 초기화
+      return () => {
+        dispatch(clearSelectedProduct());
+      };
   },[]);
 
   useEffect(() => {
@@ -84,7 +106,6 @@ function ProductDtail() {
         (힌트: 처음 렌더링 됐을떄  setTimeout 으로 타이머 설정)
       */}
         {alertTime &&
-  
         <StuledAlert  variant='info' onClose={() => setTimeout(false)} dismissible >
           현재 34명이 이 상품을 보고 있습니다
         </StuledAlert>
@@ -105,6 +126,19 @@ function ProductDtail() {
           </Col>
 
           <Button variant='primary'>주문하기</Button>
+
+          <Button variant='warning'
+            onClick={() => {dispatch(addItemToCart({
+              ...productDtail,
+              count: orderCount
+            }))
+            handleOpen()
+          }}
+            
+          >
+            장바구니
+          </Button>
+          
         </Col>
       </Row>
 
@@ -172,6 +206,24 @@ function ProductDtail() {
             'exchange':<div>탭 내용4</div>,
           }[showTab] 
         }
+        {/* 장바구니에 담기 모달 만들기 */}
+        {/* 추후 공통 모달로 만드는 것이 좋음 */}
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>❗ Shop 알림</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>장바구니에 상품을 담았습니다,<br />
+          장바구니로 이동하시겠습니까 ?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            취소
+          </Button>
+          <Button variant="primary" onClick={() => {navigate('/cart')}}>
+            확인
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 }
