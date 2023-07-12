@@ -5,6 +5,7 @@
 // => 리턴 값에 타입을 지정하고 싶으면 함수명() 우측에 적으면됨
 //  파라미터 x는 숫자만 들어올 수 있음
 function multifly(x) {
+    // return 되는 값은 숫자 타입으로 제한
     return x * 2;
     // return x * '1';  // 에러 발생
 }
@@ -36,12 +37,12 @@ function print(name) {
         console.log("이름이 없습니다");
     }
 }
-print('상혁');
+print("상혁");
 // Q2. 함수에 문자를 집어넣으면 자릿수를 세어 출력해주는 함수를 만들어보세요. (length 속성 이용)
 // 예를 들어 'apple'을 입력하면 5가 return 되어야 함
-// 문자 이외의 자료가 들어오면 안됨 
+// 문자 이외의 자료가 들어오면 안됨
 function textLenght(text) {
     return text.length;
 }
-console.log(textLenght('apple'));
-console.log(textLenght('상혁'));
+console.log(textLenght("banana"));
+console.log(textLenght("상혁"));
