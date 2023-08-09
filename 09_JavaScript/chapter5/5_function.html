@@ -104,10 +104,10 @@
     function login(id, pw) {
       if (dbId === id) {
         if (dbPw === pw) {
-      document.write(userId + '님 방문을 환영합니다');
+          document.write(userId + '님 방문을 환영합니다');
         } else{
       alert('잘못된 비밀번호 입니다');
-        }
+        } 
       } else {
       alert('잘못된 아이디입니다');
       }
@@ -143,9 +143,9 @@
       return sum / arrData.length;
     }
 
-    // const arrSubject = ['국어', '수학'];
-    // const resultAvg = testAvg(arrSubject);
-    // document.write(`평균 점수는 ${resultAvg}점 입니다<br>`);
+    const arrSubject = ['국어', '수학'];
+    const resultAvg = testAvg(arrSubject);
+    document.write(`평균 점수는 ${resultAvg}점 입니다<br>`);
 
 
     // Quiz: 이전/다음 버튼으로 이미지 넘기기
